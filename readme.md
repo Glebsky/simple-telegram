@@ -1,6 +1,5 @@
-<p align="center">
-<img alt="Simple Telegram" width="400px" src="https://i.ibb.co/CB6WHk6/tg-logo.png">
-</p>
+![logo](https://i.ibb.co/Vv58qTS/simple-Telegram.png "Simple Telegram")
+
 <p align="center">
     ✉️ 📄 🖼️ 🎧 => 🤖 => 😊
 </p>
@@ -11,7 +10,7 @@
 ---
 
 ## About
-This is a simple class that will allow you to easily send messages, documents, photos, audio to users.
+This is a simple class that will allow you to easily send messages, documents, photos, audio to users. The library is specially designed to have fewer dependencies.
 
 ## Installation
 The library can be installed using the composer:
