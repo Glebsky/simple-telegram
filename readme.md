@@ -8,7 +8,12 @@
 </p>
 
 ---
-
+<p align="center">
+    [
+        <a href="https://core.telegram.org/bots/api">Telegram Bot Documentation</a> |
+        <a href="https://core.telegram.org/bots/api#sendphoto">Supported formats</a>
+    ]
+</p>
 ## About
 This is a simple class that will allow you to easily send messages, documents, photos, audio to users. The library is specially designed to have fewer dependencies.
 
@@ -17,6 +22,7 @@ The library can be installed using the composer:
 ```bash
 сomposer install glebsky/simple-telegram
 ```
+Or you can take a ready-made class from the `src` folder since there are no dependencies.
 ## How to use
 Add in use section:
 ```php
