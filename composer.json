@@ -1,5 +1,5 @@
 {
-    "name": "glebsky/simpleTelegram",
+    "name": "glebsky/simple-telegram",
     "description": "Just a Simple Telegram class that can help you to send Messages and Files to Telegram Bot",
     "version": "1.0.0",
     "type": "library",
