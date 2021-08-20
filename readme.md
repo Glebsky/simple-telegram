@@ -1,5 +1,5 @@
 <p align="center">
-<img width="400px" src="https://i.ibb.co/CB6WHk6/tg-logo.png">
+<img alt="Simple Telegram" width="400px" src="https://i.ibb.co/CB6WHk6/tg-logo.png">
 </p>
 <p align="center">
     ✉️ 📄 🖼️ 🎧 => 🤖 => 😊
@@ -36,12 +36,12 @@ $telegram->sendAudio(__DIR__.'/audio.mp3','Audio Caption');
 ```
 >Please note that the path to the file must be specified absolute.
 
-Вы можете изменить адресата или получить текущего адресата (chat_id)
+You can change the addressee or get the current addressee (chat_id)
 ```php
 $telegram->setRecipient('123456789')
 $telegram->getRecipient() // 123456789
 ```
-Также Вы можете и не указывать получателя при инциализации класса, это можно сделать и позже перед отправкой.
+Also, you can choose not to specify the receiver when initializing the class; this can be done later before sending.
 ```php
 $botTokent = '132312455234:DSQWDQWQWEZCZXKGWETJHSOASDZXC_s';
 $telegram = new SimpleTelegram($botTokent);
@@ -51,7 +51,7 @@ $telegram->setRecipient($chat_id);
 
 $telegram->sendMessage('Test Message');
 ```
-Или вы можете комбинировать запросы
+Or you can combine queries
 ```php
 $telegram = new SimpleTelegram($botTokent);
 
@@ -59,7 +59,7 @@ $chat_id = '123456789'
 $telegram->setRecipient($chat_id)->sendPhoto(__DIR__.'/photo.jpg','Photo Caption');
 ```
 
-Методы отправки возвращают `true` в случае успешной отправки и `false` в случае неудачи
+Submission methods return `true` on successful submission and` false` on failure
 
 ```php
 $telegram->sendMessage('Test Message'); // true or false
