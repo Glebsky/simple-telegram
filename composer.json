@@ -1,0 +1,22 @@
+{
+    "name": "glebsky/simpleTelegram",
+    "description": "Just a Simple Telegram class that can help you to send Messages and Files to Telegram Bot",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "glebsky",
+            "email": "lotamountofsoul@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Glebsky\\SimpleTelegram\\": "src/"
+        }
+    }
+}
