@@ -67,7 +67,7 @@ $chat_id = '123456789'
 $telegram->setRecipient($chat_id)->sendPhoto(__DIR__.'/photo.jpg','Photo Caption');
 ```
 
-Submission methods return `true` on successful submission and` false` on failure
+Submission methods return `true` on successful submission and `false` on failure
 
 ```php
 $telegram->sendMessage('Test Message'); // true or false
