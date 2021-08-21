@@ -9,7 +9,7 @@ class SimpleTelegram
 
     public function __construct(string $botToken, $recipient = null)
     {
-        $this->botToken  = $botToken;
+        $this->botToken = $botToken;
         $this->recipient = $recipient;
     }
 
@@ -24,6 +24,7 @@ class SimpleTelegram
             throw new \Exception('Recipient must be a valid ID.');
         }
         $this->recipient = $recipient;
+
         return $this;
     }
 
@@ -38,6 +39,7 @@ class SimpleTelegram
         if ($result !== false) {
             return true;
         }
+
         return false;
     }
 
@@ -56,35 +58,36 @@ class SimpleTelegram
 
         $file_contents = file_get_contents($filename);
 
-        $content =  "--".$MULTIPART_BOUNDARY."\r\n".
-            "Content-Disposition: form-data; name=\"".$FORM_FIELD."\"; filename=\"".basename($filename)."\"\r\n".
+        $content = '--'.$MULTIPART_BOUNDARY."\r\n".
+            'Content-Disposition: form-data; name="'.$FORM_FIELD.'"; filename="'.basename($filename)."\"\r\n".
             "Content-Type: application/zip\r\n\r\n".
             $file_contents."\r\n";
 
-        $content .= "--".$MULTIPART_BOUNDARY."\r\n".
+        $content .= '--'.$MULTIPART_BOUNDARY."\r\n".
             "Content-Disposition: form-data; name=\"caption\"\r\n\r\n".
             "$caption\r\n";
 
-        $content .= "--".$MULTIPART_BOUNDARY."\r\n".
+        $content .= '--'.$MULTIPART_BOUNDARY."\r\n".
             "Content-Disposition: form-data; name=\"chat_id\"\r\n\r\n".
             "$this->recipient\r\n";
 
-        $content .= "--".$MULTIPART_BOUNDARY."--\r\n";
+        $content .= '--'.$MULTIPART_BOUNDARY."--\r\n";
 
-        $context = stream_context_create(array(
-            'http' => array(
-                'method' => 'POST',
-                'header' => $header,
+        $context = stream_context_create([
+            'http' => [
+                'method'  => 'POST',
+                'header'  => $header,
                 'content' => $content,
-            )
-        ));
+            ],
+        ]);
 
         $url = "https://api.telegram.org/bot$this->botToken/sendDocument?chat_id=$this->recipient";
         $result = file_get_contents($url, false, $context);
 
         if ($result !== false) {
-           return true;
+            return true;
         }
+
         return false;
     }
 
@@ -92,8 +95,7 @@ class SimpleTelegram
     {
         $filename = realpath($localPath);
         $type = mime_content_type($filename);
-        if (!strstr($type, 'image/'))
-        {
+        if (!strstr($type, 'image/')) {
             return false;
         }
 
@@ -102,38 +104,38 @@ class SimpleTelegram
 
         $header = 'Content-Type: multipart/form-data; boundary='.$MULTIPART_BOUNDARY;
 
-
         $file_contents = file_get_contents($filename);
 
-        $content =  "--".$MULTIPART_BOUNDARY."\r\n".
-            "Content-Disposition: form-data; name=\"".$FORM_FIELD."\"; filename=\"".basename($filename)."\"\r\n".
+        $content = '--'.$MULTIPART_BOUNDARY."\r\n".
+            'Content-Disposition: form-data; name="'.$FORM_FIELD.'"; filename="'.basename($filename)."\"\r\n".
             "Content-Type: application/zip\r\n\r\n".
             $file_contents."\r\n";
 
-        $content .= "--".$MULTIPART_BOUNDARY."\r\n".
+        $content .= '--'.$MULTIPART_BOUNDARY."\r\n".
             "Content-Disposition: form-data; name=\"caption\"\r\n\r\n".
             "$caption\r\n";
 
-        $content .= "--".$MULTIPART_BOUNDARY."\r\n".
+        $content .= '--'.$MULTIPART_BOUNDARY."\r\n".
             "Content-Disposition: form-data; name=\"chat_id\"\r\n\r\n".
             "$this->recipient\r\n";
 
-        $content .= "--".$MULTIPART_BOUNDARY."--\r\n";
+        $content .= '--'.$MULTIPART_BOUNDARY."--\r\n";
 
-        $context = stream_context_create(array(
-            'http' => array(
-                'method' => 'POST',
-                'header' => $header,
+        $context = stream_context_create([
+            'http' => [
+                'method'  => 'POST',
+                'header'  => $header,
                 'content' => $content,
-            )
-        ));
+            ],
+        ]);
 
         $url = "https://api.telegram.org/bot$this->botToken/sendPhoto?chat_id=$this->recipient";
         $result = file_get_contents($url, false, $context);
 
         if ($result !== false) {
-           return true;
+            return true;
         }
+
         return false;
     }
 
@@ -141,8 +143,7 @@ class SimpleTelegram
     {
         $filename = realpath($localPath);
         $type = mime_content_type($filename);
-        if (!strstr($type, 'audio/mpeg'))
-        {
+        if (!strstr($type, 'audio/mpeg')) {
             return false;
         }
 
@@ -151,38 +152,38 @@ class SimpleTelegram
 
         $header = 'Content-Type: multipart/form-data; boundary='.$MULTIPART_BOUNDARY;
 
-
         $file_contents = file_get_contents($filename);
 
-        $content =  "--".$MULTIPART_BOUNDARY."\r\n".
-            "Content-Disposition: form-data; name=\"".$FORM_FIELD."\"; filename=\"".basename($filename)."\"\r\n".
+        $content = '--'.$MULTIPART_BOUNDARY."\r\n".
+            'Content-Disposition: form-data; name="'.$FORM_FIELD.'"; filename="'.basename($filename)."\"\r\n".
             "Content-Type: application/zip\r\n\r\n".
             $file_contents."\r\n";
 
-        $content .= "--".$MULTIPART_BOUNDARY."\r\n".
+        $content .= '--'.$MULTIPART_BOUNDARY."\r\n".
             "Content-Disposition: form-data; name=\"caption\"\r\n\r\n".
             "$caption\r\n";
 
-        $content .= "--".$MULTIPART_BOUNDARY."\r\n".
+        $content .= '--'.$MULTIPART_BOUNDARY."\r\n".
             "Content-Disposition: form-data; name=\"chat_id\"\r\n\r\n".
             "$this->recipient\r\n";
 
-        $content .= "--".$MULTIPART_BOUNDARY."--\r\n";
+        $content .= '--'.$MULTIPART_BOUNDARY."--\r\n";
 
-        $context = stream_context_create(array(
-            'http' => array(
-                'method' => 'POST',
-                'header' => $header,
+        $context = stream_context_create([
+            'http' => [
+                'method'  => 'POST',
+                'header'  => $header,
                 'content' => $content,
-            )
-        ));
+            ],
+        ]);
 
         $url = "https://api.telegram.org/bot$this->botToken/sendAudio?chat_id=$this->recipient";
         $result = file_get_contents($url, false, $context);
 
         if ($result !== false) {
-           return true;
+            return true;
         }
+
         return false;
     }
 }
