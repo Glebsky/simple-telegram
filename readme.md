@@ -17,6 +17,7 @@
         <a href="https://core.telegram.org/bots/api#sendphoto">Supported formats</a>
     ]
 </p>
+
 ## About
 This is a simple class that will allow you to easily send messages, documents, photos, audio to users. The library is specially designed to have fewer dependencies.
 
