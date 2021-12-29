@@ -35,7 +35,7 @@ use Glebsky\SimpleTelegram\SimpleTelegram;
 And add your SimpleTelegram To your code section to send messages:
 ```php
 $botTokent = '132312455234:DSQWDQWQWEZCZXKGWETJHSOASDZXC_s';
-$chat_id = '123456789'
+$chat_id = '123456789';
 $telegram = new SimpleTelegram($botTokent,$chat_id);
 
 $telegram->sendMessage('Test Message');
