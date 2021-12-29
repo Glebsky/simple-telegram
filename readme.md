@@ -47,15 +47,15 @@ $telegram->sendAudio(__DIR__.'/audio.mp3','Audio Caption');
 
 You can change the addressee or get the current addressee (chat_id)
 ```php
-$telegram->setRecipient('123456789')
-$telegram->getRecipient() // 123456789
+$telegram->setRecipient('123456789');
+$telegram->getRecipient(); // 123456789
 ```
 Also, you can choose not to specify the receiver when initializing the class; this can be done later before sending.
 ```php
 $botTokent = '132312455234:DSQWDQWQWEZCZXKGWETJHSOASDZXC_s';
 $telegram = new SimpleTelegram($botTokent);
 
-$chat_id = '123456789'
+$chat_id = '123456789';
 $telegram->setRecipient($chat_id);
 
 $telegram->sendMessage('Test Message');
@@ -64,7 +64,7 @@ Or you can combine queries
 ```php
 $telegram = new SimpleTelegram($botTokent);
 
-$chat_id = '123456789'
+$chat_id = '123456789';
 $telegram->setRecipient($chat_id)->sendPhoto(__DIR__.'/photo.jpg','Photo Caption');
 ```
 
